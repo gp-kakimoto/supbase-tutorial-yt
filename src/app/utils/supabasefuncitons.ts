@@ -11,7 +11,6 @@ export const addTodo = async (title: string) => {
     .from("todo")
     .insert([{ title: title }])
     .select();
-  //  console.log(data);
   if (error) return null;
   else return data;
 };

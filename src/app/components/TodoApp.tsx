@@ -1,8 +1,6 @@
 "use client";
-//import React, { useState, useEffect } from "react";
 import React, { useState } from "react";
 import TodoList from "./TodoList";
-//import { addTodo, getAllTodos } from "../utils/supabasefuncitons";
 import { addTodo } from "../utils/supabasefuncitons";
 import { Todo } from "../utils/interfaces";
 import { useRouter } from "next/navigation";
@@ -13,32 +11,13 @@ type Props = {
 
 const TodoApp = (props: Props) => {
   const { todos } = props;
-  //  const [todos, setTodos] = useState<Array<Todo>>([]);
   const [title, setTitle] = useState<string>("");
   const router = useRouter();
-  //const todos = await getAllTodos();
-  /*
-  useEffect(() => {
-    const getTodos = async () => {
-      const todos = await getAllTodos();
-      if (todos) {
-        setTodos(todos);
-      }
-      console.log(todos);
-    };
-    getTodos();
-  }, []);
-*/
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (title === "") return;
     //Todoの追加
     await addTodo(title);
-    /* const tmp_todos = await getAllTodos();
-    if (tmp_todos) {
-      setTodos(tmp_todos);
-    }
-      */
     router.refresh();
     setTitle("");
   };

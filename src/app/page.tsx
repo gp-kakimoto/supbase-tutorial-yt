@@ -1,4 +1,3 @@
-//import Image from "next/image";
 import TodoApp from "./components/TodoApp";
 import { getAllTodos } from "./utils/supabasefuncitons";
 import { Todo } from "./utils/interfaces";
